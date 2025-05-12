@@ -55,9 +55,15 @@ int main() {
 
     int blur_kernel_size = 5;
 
+    auto start_time = std::chrono::high_resolution_clock::now();
+
     cv::Mat blurred_image = sequentialBlur(image, blur_kernel_size);
 
-    //std::cout << "Execution time of sequentialBlur (" << blur_kernel_size << "x" << blur_kernel_size << "): " << duration.count() << " ms" << std::endl;
+    auto end_time = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double, std::milli> duration = end_time - start_time;
+
+    std::cout << "Execution time of sequentialBlur (" << blur_kernel_size << "x" << blur_kernel_size << "): " << duration.count() << " ms" << std::endl;
 
     cv::imshow("Original Image", image);
     cv::imshow("Blurred Image (Sequential)", blurred_image);
