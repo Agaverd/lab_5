@@ -11,14 +11,14 @@ cv::Mat sequentialBlur(const cv::Mat& input_image, int kernel_size) {
 
     int border = kernel_size / 2; //half core's size
 
-	//iterate over rows of image
+    //iterate over rows of image
     for (int y = border; y < input_image.rows - border; ++y) {
         for (int x = border; x < input_image.cols - border; ++x) {
 
             cv::Vec3d sum_channels = { 0.0, 0.0, 0.0 }; //store sum for channels
 
             //iterate over rows of core
-			for (int ky = -border; ky <= border; ++ky) {
+            for (int ky = -border; ky <= border; ++ky) {
                 for (int kx = -border; kx <= border; ++kx) {
                     // Получаем пиксель из входного изображения в окне ядра
                     cv::Vec3b pixel = input_image.at<cv::Vec3b>(y + ky, x + kx);
@@ -55,15 +55,9 @@ int main() {
 
     int blur_kernel_size = 5;
 
-    auto start_time = std::chrono::high_resolution_clock::now();
-
     cv::Mat blurred_image = sequentialBlur(image, blur_kernel_size);
 
-    auto end_time = std::chrono::high_resolution_clock::now();
-
-    std::chrono::duration<double, std::milli> duration = end_time - start_time;
-
-    std::cout << "Execution time of sequentialBlur (" << blur_kernel_size << "x" << blur_kernel_size << "): " << duration.count() << " ms" << std::endl;
+    //std::cout << "Execution time of sequentialBlur (" << blur_kernel_size << "x" << blur_kernel_size << "): " << duration.count() << " ms" << std::endl;
 
     cv::imshow("Original Image", image);
     cv::imshow("Blurred Image (Sequential)", blurred_image);
