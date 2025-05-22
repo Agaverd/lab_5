@@ -31,7 +31,11 @@ This experimet tests the performance of atomic and mutex operations with a count
 
 In average atomic 3,58 times faster than mutex.
 Also this sheet demonstates that dependency core's count to time is linear in atomic and non-linear in mutex
-That is another disadvantage to use it instead of atomic
+That is another disadvantage to use it in simple operations instead of atomic
+
+### Difference between atomic and mutex
+Use mutex, if required to share complex data like arrays, which can't be completed atomic like.
+Atomic operation - operation what runs like a solid one
 
 # Result
 1. Multitreading can boost the same task in 4 times
