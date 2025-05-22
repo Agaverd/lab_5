@@ -11,7 +11,7 @@ Core's size & Time
 | 7x7  | 3994.38      |
 
 # Test 2
-After writing `parallellBlur `function using std::thread i'm gonna copare results with basic `SequentialBlur`
+After writing `parallellBlur `function using std::thread i'm gonna compare results with basic `SequentialBlur`
 | size | Seq_Time, ms | Par_time, ms | faster , % |
 |------|--------------|--------------|------------|
 | 3x3  | 899.831      | 208.732      | 430        |
