@@ -4,7 +4,7 @@
 #include <thread>
 #include <vector>
 
-cv::Mat sequentialBlur(const cv::Mat& input_image, int kernel_size) {
+cv::Mat parallellBlurThreads(const cv::Mat& input_image, int kernel_size, int num_threads) {
     if (kernel_size <= 0 || kernel_size % 2 == 0) {
         std::cerr << "Core's size must to be positive and odd" << std::endl;
     }
@@ -12,6 +12,8 @@ cv::Mat sequentialBlur(const cv::Mat& input_image, int kernel_size) {
     cv::Mat output_image = cv::Mat::zeros(input_image.size(), input_image.type());
 
     int border = kernel_size / 2; //half core's size
+
+	//iterate over gotten rows of image
 
     //iterate over rows of image
     for (int y = border; y < input_image.rows - border; ++y) {
@@ -59,7 +61,7 @@ int main() {
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    cv::Mat blurred_image = sequentialBlur(image, blur_kernel_size);
+    cv::Mat blurred_image = parallellBlurThreads(image, blur_kernel_size);
 
     auto end_time = std::chrono::high_resolution_clock::now();
 
