@@ -9,6 +9,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 # 3) Добавить ваш исполняемый файл
 add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(parallel src/parallel.cpp)
 
 # 4) Линковать библиотеки OpenCV
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
