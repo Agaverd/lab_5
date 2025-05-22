@@ -17,6 +17,7 @@ After writing `parallellBlur `function using std::thread i'm gonna copare result
 | 3x3  | 899.831      | 208.732      | 430        |
 | 5x5  | 2248.87      | 531.555      | 423        |
 | 7x7  | 3994.38      | 1116.77      | 357        |
+
 in average parallel blur faster than sequention in 4 times, that's cause laptons on which i run this code has only 4 cores
 
 Reading list:
