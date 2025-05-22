@@ -53,7 +53,7 @@ int main() {
     std::cout << "Image's been downloaded successfuly. Dimensions: " << image.cols << "x" << image.rows << std::endl;
     std::cout << "Amount of channels: " << image.channels() << std::endl;
 
-    int blur_kernel_size = 5;
+    int blur_kernel_size = 7;
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
